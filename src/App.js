@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import {Route, Routes, Link} from 'react-router-dom'
+import {useState} from 'react'
+import Search from './components/Search';
+import Planets from './components/Planet';
+import People from './components/People';
+import Starships from './components/Starships';
 
-function App() {
+const App = () => {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Star Wars</h1>
+
+    <Search />
+
+      <Routes>
+        <Route path='/' element={<p>Home</p>} />
+        <Route path="/one/people/:id/" element={<People />} />
+        <Route path="/one/planets/:id/" element={<Planets />} />
+        <Route path="/one/starships/:id/" element={<Starships />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
+
+
+
+
